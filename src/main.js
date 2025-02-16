@@ -5,6 +5,7 @@ import { renderImages, clearGallery } from './js/render-functions.js';
 
 const form = document.getElementById('search-form');
 const loader = document.getElementById('loader');
+const loadingText = document.getElementById('loading-text');
 
 form.addEventListener('submit', handleSubmit);
 
@@ -22,6 +23,8 @@ async function handleSubmit(event) {
   }
 
   loader.style.display = 'block';
+  loadingText.style.display = 'block';
+
   clearGallery();
 
   try {
@@ -44,6 +47,7 @@ async function handleSubmit(event) {
     });
   } finally {
     loader.style.display = 'none';
+    loadingText.style.display = 'none';
     event.target.reset();
   }
 }

@@ -32,23 +32,26 @@ body {
   cursor: pointer;
 }
 
-.loading-message {
+#loading-text {
   display: flex;
+  text-align: center;
   justify-content: center;
   margin: 0;
 }
 
 .gallery {
   display: grid;
+  max-width: 1128px;
+  max-height: 648px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 24px;
-  padding: 20px;
+  padding: 0px;
+  margin: auto;
 }
 
 .gallery-item {
   width: 360px;
   max-height: 200px;
-  border-radius: 5px;
   border: 1px solid #808080;
   overflow: hidden; /* Ховаємо частини зображення, що виходять за межі */
   position: relative;
@@ -68,15 +71,12 @@ body {
   background-color: white;
   padding: 10px;
   display: flex;
-  /* flex-wrap: wrap; */
   justify-content: space-between;
-  /* max-height: 48px; */
-
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255);
   padding: 10px;
   box-sizing: border-box;
 }
