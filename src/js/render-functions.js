@@ -17,9 +17,12 @@ export function renderImages(images) {
         downloads,
       }) => `
             <li class="gallery-item">
-                <a href="${largeImageURL}">
-                    <img class="gallery-image" src="${webformatURL}" alt="${tags}" loading="lazy">
-                </a>
+                <div class="gallery">
+                    <a href="${largeImageURL}">
+                        <img class="gallery-image" src="${webformatURL}" alt="${tags}" loading="lazy">
+                    </a>
+                </div>
+
                 <div class="info">
                     <p><b>Likes:</b> ${likes}</p>
                     <p><b>Views:</b> ${views}</p>
@@ -32,19 +35,16 @@ export function renderImages(images) {
     .join('');
 
   gallery.innerHTML = markup;
-  lightbox.refresh();
 
-  if (lightbox) {
-    lightbox.refresh();
-  } else {
+  if (!lightbox) {
     lightbox = new SimpleLightbox('.gallery a');
   }
+  lightbox.refresh();
 }
 
 export function clearGallery() {
   gallery.innerHTML = '';
   if (lightbox) {
-    // Очищуємо також lightbox
     lightbox.destroy();
     lightbox = null;
   }
